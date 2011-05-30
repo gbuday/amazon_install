@@ -1,0 +1,18 @@
+PWD=`pwd`
+
+add()
+{
+  PACKAGE=`echo $1 | sed -e 's/-[0-9.]*\/bin//' | sed -e 's/.*\///'`
+  if ! echo $PATH | grep $PACKAGE >/dev/null
+  then
+    export PATH=${PATH}:$1
+  fi
+}
+add ${PWD}/AWSCloudFormation-1.0.6/bin
+add ${PWD}/ElasticLoadBalancing-1.0.12.0/bin
+add ${PWD}/ec2-api-tools-1.4.2.4/bin
+add ${PWD}/AutoScaling-1.0.33.1/bin
+
+
+
+
